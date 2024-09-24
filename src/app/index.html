@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casamento - Nathielly e Filipe</title>
+    <link rel="stylesheet" href="../styles/home.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#confirmacao"><i class="fa fa-check-circle"></i><span>Confirmação</span></a>
+        <a href="#presentes"><i class="fa fa-gift"></i><span>Presentes</span></a>
+        <a href="#localizacao"><i class="fa fa-map-marker"></i><span>Local</span></a>
+        <a href="#dress-code"><i class="fa fa-user"></i><span>Dress Code</span></a>
+        <a href="#recados"><i class="fa fa-envelope"></i><span>Recados</span></a>
+    </div>
+    
+    <!-- Seção de Confirmação -->
+    <section id="confirmacao">
+        <h1>Confirme sua Presença aaaa</h1>
+        <form id="rsvp-form">
+            <input type="text" id="nome" placeholder="Seu nome" required>
+            <button type="button" onclick="confirmarPresenca()">Confirmar Presença</button>
+        </form>
+    </section>
+
+    <!-- Seção de Presentes -->
+    <section id="presentes">
+        <h1>Nossa Lista de Presentes</h1>
+        <a href="https://www.querodecasamento.com.br/painel-de-controle/home" class="botao-presente" target="_blank">Ver Presentes</a>
+    </section>
+
+    <!-- Seção Localização -->
+    <section id="localizacao">
+        <h1>Local do Casamento</h1>
+        <div class="botoes-local">
+            <button onclick="abrirMaps()">Abrir no Google Maps</button>
+            <button onclick="abrir3D()">Ver Local em 3D</button>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3498.2142073053246!2d-49.31157262374868!3d-28.74302077215591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95217e5c8a3361db%3A0xdfe76446e8196b79!2sKiosque%20DIGO%20E%20MONI%20Eventos%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1725598397495!5m2!1spt-BR!2sbr"
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Seção Dress Code -->
+    <section id="dress-code">
+        <h1>Dress Code</h1>
+        <p>O traje sugerido para o evento é formal. Pedimos que os homens venham de terno e gravata, e as mulheres com vestido elegante.</p>
+    </section>
+
+    <!-- Seção de Recados -->
+    <section id="recados">
+        <h1>Deixe um Recado para os Noivos</h1>
+        <textarea id="mensagem" placeholder="Escreva seu recado aqui..."></textarea>
+        <button type="button" onclick="enviarRecado()">Enviar Recado</button>
+    </section>
+
+    <script src="../scripts/home.js"></script>
+</body>
+</html>
