@@ -105,6 +105,52 @@ textarea, input {
     margin-bottom: 5px;
 }
 
+/* Seção do Cronômetro */
+#cronometro {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#cronometro h1 {
+    color: #556b2f; /* Verde oliva */
+    margin-bottom: 20px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center; /* Alinha os números do cronômetro no centro */
+    gap: 20px; /* Espaçamento entre os itens do cronômetro */
+}
+
+.time-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 10px;
+    width: 80px; /* Tamanho menor para manter a compactação */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.time-item span {
+    font-size: 2rem;
+    color: #556b2f; /* Verde oliva */
+    font-weight: bold;
+}
+
+.time-item p {
+    font-size: 14px;
+    color: #333;
+}
+
 /* Ajustes no Mapa */
 .map-container {
     position: relative;
@@ -167,6 +213,15 @@ textarea, input {
 
     .map-container iframe {
         height: 200px; /* Ajusta a altura do mapa para telas muito pequenas */
+    }
+
+    .timer {
+        flex-wrap: wrap; /* Em dispositivos móveis, os números podem ir para a próxima linha */
+        gap: 15px; /* Reduz o espaçamento entre os itens do cronômetro */
+    }
+
+    .time-item {
+        width: 60px; /* Menor tamanho em dispositivos móveis */
     }
 }
 
