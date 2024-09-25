@@ -66,7 +66,6 @@ function carregarProdutos() {
                     <p class="product-description">${product.description}</p>
                     <p class="product-price">R$${product.price.toFixed(2)}</p>
                     <div class="product-actions">
-                        <a href="https://www.magalu.com" target="_blank" class="botao-magalu">Comprar na Magalu</a>
                         <a href="pix:${product.linkPix}" class="botao-pix">Fazer PIX</a>
                     </div>
                 `;
