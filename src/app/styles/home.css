@@ -1,3 +1,4 @@
+/* Estilos globais */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f5f5f5;
@@ -5,7 +6,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Impede o scroll horizontal */
-    box-sizing: border-box; /* Inclui padding e border dentro da largura total dos elementos */
+    box-sizing: border-box;
+    background-image: url('assets/fundo.jpg'); /* Imagem de fundo */
+    background-size: cover;
+    background-position: center;
 }
 
 h1 {
@@ -15,21 +19,25 @@ h1 {
 
 section {
     padding: 20px;
-    margin-bottom: 20px;
-    max-width: 100%;
+    margin-bottom: 30px; /* Espaçamento entre as seções */
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+    border-radius: 12px; /* Ajustando o border-radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
     text-align: center;
-    box-sizing: border-box; /* Inclui padding dentro da largura total */
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
 }
 
 /* Botões */
 button, .botao-presente {
     background-color: #556b2f;
     color: white;
-    padding: 8px 15px;
+    padding: 12px 25px; /* Aumenta o padding para maior área clicável */
     border: none;
-    border-radius: 4px;
+    border-radius: 8px; /* Mais arredondado para visual moderno */
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -50,6 +58,7 @@ button:hover, .botao-presente:hover {
     width: auto;
 }
 
+/* Botoes de Localização */
 .botoes-local {
     display: flex;
     justify-content: center;
@@ -67,41 +76,36 @@ textarea, input {
     box-sizing: border-box;
 }
 
-/* Estilos da Navbar */
+/* Navbar com ícones */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #556b2f;
+    background-color: rgba(85, 107, 47, 0.9); /* Verde oliva com transparência */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 15px 0;
+    padding: 10px 0;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
 }
 
 .navbar a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 15px;
-    border-radius: 8px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .navbar a:hover {
-    background-color: #6b8e23;
+    background-color: rgba(107, 142, 35, 0.9); /* Tom mais claro no hover */
     transform: scale(1.1);
 }
 
 .navbar a i {
-    font-size: 20px;
-    margin-bottom: 5px;
+    font-size: 24px; /* Tamanho dos ícones */
 }
 
 /* Seção do Cronômetro */
@@ -109,7 +113,7 @@ textarea, input {
     padding: 20px;
     margin-bottom: 20px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 12px; /* Ajustado o border-radius */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
@@ -154,7 +158,7 @@ textarea, input {
 #confirmacao {
     padding: 20px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 12px; /* Ajustado o border-radius */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
@@ -188,21 +192,6 @@ textarea, input {
 
 .radio-group input {
     margin-right: 8px;
-}
-
-button {
-    background-color: #556b2f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #6b8e23;
 }
 
 /* Toast */
@@ -280,20 +269,12 @@ button:hover {
 
 @media only screen and (max-width: 500px) {
     button, .botao-presente {
-        font-size: 10px;
-        padding: 4px 10px;
-    }
-
-    button i, .botao-presente i {
         font-size: 14px;
+        padding: 10px 20px;
     }
 
     .navbar a {
-        font-size: 12px;
-    }
-
-    .navbar a i {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .map-container iframe {
@@ -307,6 +288,11 @@ button:hover {
 
     .time-item {
         width: 60px; /* Menor tamanho em dispositivos móveis */
+    }
+
+    section {
+        padding: 15px;
+        margin-bottom: 40px;
     }
 }
 
@@ -327,6 +313,10 @@ button:hover {
 
     .time-item p {
         font-size: 12px; /* Tamanho menor da fonte das legendas */
+    }
+
+    section {
+        margin-bottom: 50px;
     }
 }
 
