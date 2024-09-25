@@ -225,6 +225,26 @@ textarea, input {
     }
 }
 
+/* Media queries para telas menores que 400px */
+@media only screen and (max-width: 400px) {
+    .timer {
+        gap: 10px; /* Reduz ainda mais o espaçamento entre os itens */
+    }
+
+    .time-item {
+        width: 50px; /* Tamanho menor dos itens para se ajustar a telas muito pequenas */
+        padding: 5px; /* Reduz o padding para telas menores */
+    }
+
+    .time-item span {
+        font-size: 1.5rem; /* Tamanho menor da fonte dos números */
+    }
+
+    .time-item p {
+        font-size: 12px; /* Tamanho menor da fonte das legendas */
+    }
+}
+
 /* Elimina qualquer possível scroll horizontal */
 * {
     box-sizing: border-box;
