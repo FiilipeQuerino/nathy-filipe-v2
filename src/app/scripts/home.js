@@ -66,9 +66,16 @@ function carregarProdutos() {
                     <p class="product-description">${product.description}</p>
                     <p class="product-price">R$${product.price.toFixed(2)}</p>
                     <div class="product-actions">
-                        <a href="pix:${product.linkPix}" class="botao-pix">Comprar</a>
+                        <button class="botao-pix" data-pix="${product.linkPix}">COMPRAR</button>
                     </div>
                 `;
+
+                // Adiciona o evento de clique no botão "COMPRAR"
+                productCard.querySelector('.botao-pix').addEventListener('click', function() {
+                    const pixCode = this.getAttribute('data-pix');
+                    copiarPix(pixCode); // Copia o código PIX e exibe a notificação
+                });
+
                 productList.appendChild(productCard);
             });
         })
@@ -77,6 +84,41 @@ function carregarProdutos() {
             showToast('Erro ao carregar a lista de presentes.');
         });
 }
+
+// Função para copiar o código PIX e exibir a notificação
+function copiarPix(pixCode) {
+    // Cria um elemento temporário para copiar o código PIX
+    const tempInput = document.createElement('input');
+    tempInput.value = pixCode;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    // Exibe a notificação visual
+    showToast('Código PIX copiado para a área de transferência. Cole no seu aplicativo bancário.');
+
+    // Verifica se está em um dispositivo móvel e sugere abrir o app bancário
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+        showToast('Cole o código no seu app bancário.');
+    }
+}
+
+// Função para exibir mensagens de feedback (toast)
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "toast show";
+    setTimeout(function() {
+        toast.className = toast.className.replace("show", "");
+    }, 3000);
+}
+
+// Executa o carregamento dos produtos
+document.addEventListener('DOMContentLoaded', function () {
+    carregarProdutos(); // Carrega os produtos da lista de presentes
+});
 
 // Função para enviar dados para o Google Sheets
 function enviarParaGoogleSheets(name, response) {
