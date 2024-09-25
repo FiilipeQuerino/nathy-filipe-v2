@@ -59,6 +59,37 @@ button:hover, .botao-presente:hover {
     width: auto;
 }
 
+/* Estilo do banner de cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    display: none; /* Inicialmente escondido */
+}
+
+.cookie-banner p {
+    display: inline-block;
+    margin: 0;
+    padding-right: 10px;
+}
+
+.cookie-banner button {
+    background-color: #556b2f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cookie-banner button:hover {
+    background-color: #6b8e23;
+}
+
 /* Botoes de Localização */
 .botoes-local {
     display: flex;
