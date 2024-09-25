@@ -57,7 +57,6 @@ function carregarProdutos() {
         .then(products => {
             const productList = document.getElementById('product-list');
             products.forEach(product => {
-                // Cria o elemento HTML para cada produto
                 const productCard = document.createElement('div');
                 productCard.className = 'product-card';
 
@@ -74,7 +73,7 @@ function carregarProdutos() {
                 // Adiciona o evento de clique no botão "COMPRAR"
                 productCard.querySelector('.botao-pix').addEventListener('click', function() {
                     const pixCode = this.getAttribute('data-pix');
-                    copiarPix(pixCode); // Copia o código PIX e exibe a notificação
+                    mostrarModalPix(pixCode); // Exibe o modal e copia o código
                 });
 
                 productList.appendChild(productCard);
@@ -86,24 +85,35 @@ function carregarProdutos() {
         });
 }
 
-// Função para copiar o código PIX e exibir a notificação
+// Função para copiar o código PIX e exibir o modal com mensagem
+function mostrarModalPix(pixCode) {
+    const modal = document.getElementById('pix-modal');
+    const modalText = document.getElementById('modal-pix-code');
+    modalText.textContent = pixCode; // Exibe o código PIX no modal
+
+    modal.style.display = 'block'; // Exibe o modal
+
+    // Evento do botão de confirmação dentro do modal
+    document.getElementById('confirmar-pix').addEventListener('click', function() {
+        copiarPix(pixCode); // Copia o código PIX quando o usuário clica em "Confirmar"
+        modal.style.display = 'none'; // Fecha o modal
+        showToast('Código PIX copiado. Cole no seu app bancário.');
+    });
+
+    // Evento para fechar o modal clicando no "X"
+    document.getElementById('fechar-modal').addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+}
+
+// Função para copiar o código PIX
 function copiarPix(pixCode) {
-    // Cria um elemento temporário para copiar o código PIX
     const tempInput = document.createElement('input');
     tempInput.value = pixCode;
     document.body.appendChild(tempInput);
     tempInput.select();
     document.execCommand('copy');
     document.body.removeChild(tempInput);
-
-    // Exibe a notificação visual
-    showToast('Código PIX copiado para a área de transferência. Cole no seu aplicativo bancário.');
-
-    // Verifica se está em um dispositivo móvel e sugere abrir o app bancário
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-        showToast('Cole o código no seu app bancário.');
-    }
 }
 
 // Função para exibir mensagens de feedback (toast)
