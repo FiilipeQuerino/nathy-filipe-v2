@@ -151,6 +151,92 @@ textarea, input {
     color: #333;
 }
 
+/* Seção de Confirmação */
+#confirmacao {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#confirmacao h1 {
+    color: #556b2f;
+    margin-bottom: 20px;
+}
+
+#rsvp-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.radio-group label {
+    font-size: 16px;
+    color: #333;
+}
+
+.radio-group input {
+    margin-right: 8px;
+}
+
+button {
+    background-color: #556b2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #6b8e23;
+}
+
+/* Toast */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
 /* Ajustes no Mapa */
 .map-container {
     position: relative;
@@ -222,26 +308,6 @@ textarea, input {
 
     .time-item {
         width: 60px; /* Menor tamanho em dispositivos móveis */
-    }
-}
-
-/* Media queries para telas menores que 400px */
-@media only screen and (max-width: 400px) {
-    .timer {
-        gap: 10px; /* Reduz ainda mais o espaçamento entre os itens */
-    }
-
-    .time-item {
-        width: 50px; /* Tamanho menor dos itens para se ajustar a telas muito pequenas */
-        padding: 5px; /* Reduz o padding para telas menores */
-    }
-
-    .time-item span {
-        font-size: 1.5rem; /* Tamanho menor da fonte dos números */
-    }
-
-    .time-item p {
-        font-size: 12px; /* Tamanho menor da fonte das legendas */
     }
 }
 
