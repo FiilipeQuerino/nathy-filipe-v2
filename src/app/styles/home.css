@@ -439,6 +439,10 @@ textarea, input {
     .map-container iframe {
         height: 250px; /* Ajusta a altura do mapa para telas menores */
     }
+
+    .modal-content {
+        width: 90%;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -490,6 +494,11 @@ textarea, input {
         padding: 15px;
         margin-bottom: 40px;
     }
+
+    .modal-content {
+        width: 95%;
+    }
+
 }
 
 /* Media queries para telas menores que 400px */
@@ -536,6 +545,15 @@ textarea, input {
     .botao-magalu, .botao-pix {
         font-size: 12px; /* Ajusta o tamanho da fonte dos botões */
         padding: 8px; /* Menor padding nos botões */
+    }
+
+    .modal-content {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .pix-code {
+        font-size: 1rem;
     }
 }
 
