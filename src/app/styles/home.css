@@ -226,99 +226,85 @@ textarea, input {
     to {bottom: 0; opacity: 0;}
 }
 
-/* Seção de Presentes */
-#presentes {
-    padding: 40px 20px;
+/* Estilo dos produtos */
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.product-card {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 20px;
+    max-width: 300px;
     text-align: center;
+    transition: transform 0.3s;
 }
 
-#presentes h1 {
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-name {
     color: #556b2f;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
 }
 
-#presentes p {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.botao-presente {
-    background-color: #556b2f;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    margin-bottom: 30px;
-    display: inline-block;
-}
-
-.botao-presente:hover {
-    background-color: #6b8e23;
-}
-
-.produtos-lista {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.produto-item {
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
-    padding: 15px;
-}
-
-.produto-item img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.produto-item h3 {
-    color: #333;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.produto-item p {
-    font-size: 14px;
-    margin-bottom: 10px;
+.product-description {
+    font-size: 1rem;
     color: #666;
+    margin-bottom: 10px;
 }
 
-.produto-item .preco {
-    font-size: 16px;
+.product-price {
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #556b2f;
+    color: #333;
     margin-bottom: 15px;
 }
 
-.produto-item .botao-pix {
-    background-color: #556b2f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: none;
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.produto-item .botao-pix:hover {
+.botao-magalu, .botao-pix {
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.botao-magalu {
+    background-color: #0070f3;
+}
+
+.botao-magalu:hover {
+    background-color: #005bb5;
+}
+
+.botao-pix {
+    background-color: #556b2f;
+}
+
+.botao-pix:hover {
     background-color: #6b8e23;
 }
+
 
 /* Ajustes no Mapa */
 .map-container {
@@ -357,6 +343,15 @@ textarea, input {
         font-size: 18px;
     }
 
+    .product-card {
+        max-width: 90%; /* Aumenta a largura do produto para quase preencher a tela */
+    }
+
+    .product-actions {
+        flex-direction: column; /* Alinha os botões verticalmente */
+        gap: 15px;
+    }
+
     .map-container iframe {
         height: 250px; /* Ajusta a altura do mapa para telas menores */
     }
@@ -372,10 +367,6 @@ textarea, input {
         font-size: 18px;
     }
 
-    .map-container iframe {
-        height: 200px; /* Ajusta a altura do mapa para telas muito pequenas */
-    }
-
     .timer {
         flex-wrap: wrap; /* Em dispositivos móveis, os números podem ir para a próxima linha */
         gap: 15px; /* Reduz o espaçamento entre os itens do cronômetro */
@@ -384,6 +375,32 @@ textarea, input {
     .time-item {
         width: 60px; /* Menor tamanho em dispositivos móveis */
     }
+
+    .product-card {
+        max-width: 100%; /* A largura do produto ocupa toda a tela */
+        padding: 15px;
+    }
+
+    .product-name {
+        font-size: 1.2rem;
+    }
+
+    .product-description {
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+
+    .botao-magalu, .botao-pix {
+        font-size: 14px; /* Ajusta o tamanho da fonte dos botões */
+    }
+
+    .map-container iframe {
+        height: 200px; /* Ajusta a altura do mapa para telas muito pequenas */
+    }
+
 
     section {
         padding: 15px;
@@ -411,7 +428,30 @@ textarea, input {
     }
 
     section {
-        margin-bottom: 50px;
+        margin-bottom: 50px; /* Maior espaçamento inferior entre as seções */
+    }
+
+    /* Ajustes adicionais para a lista de produtos */
+    .product-card {
+        max-width: 100%; /* O produto ocupa toda a largura da tela */
+        padding: 10px; /* Reduz o padding em telas muito pequenas */
+    }
+
+    .product-name {
+        font-size: 1.1rem; /* Ajusta o tamanho da fonte do nome do produto */
+    }
+
+    .product-description {
+        font-size: 0.85rem; /* Reduz o tamanho da descrição */
+    }
+
+    .product-price {
+        font-size: 1rem; /* Ajusta o tamanho do preço */
+    }
+
+    .botao-magalu, .botao-pix {
+        font-size: 12px; /* Ajusta o tamanho da fonte dos botões */
+        padding: 8px; /* Menor padding nos botões */
     }
 }
 
