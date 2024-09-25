@@ -66,7 +66,7 @@ function carregarProdutos() {
                     <p class="product-description">${product.description}</p>
                     <p class="product-price">R$${product.price.toFixed(2)}</p>
                     <div class="product-actions">
-                        <a href="pix:${product.linkPix}" class="botao-pix">Fazer PIX</a>
+                        <a href="pix:${product.linkPix}" class="botao-pix">Comprar</a>
                     </div>
                 `;
                 productList.appendChild(productCard);
