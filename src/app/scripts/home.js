@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     carregarDadosLocais(); // Carrega os dados salvos no Local Storage
+    carregarProdutos(); // Carrega os produtos da lista de presentes
 
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -46,6 +47,36 @@ function abrirWhatsApp(mensagem) {
             alert("Por favor, permita pop-ups para abrir o WhatsApp.");
         }
     }
+}
+
+// Função para carregar os produtos da lista de presentes
+function carregarProdutos() {
+    fetch('../data/products.json')
+        .then(response => response.json())
+        .then(products => {
+            const productList = document.getElementById('product-list');
+            products.forEach(product => {
+                // Cria o elemento HTML para cada produto
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <h2 class="product-name">${product.name}</h2>
+                    <p class="product-description">${product.description}</p>
+                    <p class="product-price">R$${product.price.toFixed(2)}</p>
+                    <div class="product-actions">
+                        <a href="https://www.magalu.com" target="_blank" class="botao-magalu">Comprar na Magalu</a>
+                        <a href="pix:${product.linkPix}" class="botao-pix">Fazer PIX</a>
+                    </div>
+                `;
+                productList.appendChild(productCard);
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao carregar os produtos:', error);
+            showToast('Erro ao carregar a lista de presentes.');
+        });
 }
 
 // Função para enviar dados para o Google Sheets
