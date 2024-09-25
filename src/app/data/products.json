@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Contribuição para o Jogo de Panela",
+        "description": "Ajudar a comprar aquele conjunto de panelas top para evitar o delivery todo mês.",
+        "image": "https://images.unsplash.com/photo-1584990347449-fd98bc063110?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 150,
+        "linkPix": "00020126330014BR.GOV.BCB.PIX0111109853269485204000053039865406150.005802BR5925Filipe Querino dos Santos6009SAO PAULO62140510YFeCHLJQC66304FD82"
+    },
+    {
+        "name": "Assinatura de Netflix por um ano",
+        "description": "Garanta nossas maratonas de séries sem interrupções. 😅",
+        "image": "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 500,
+        "linkPix": "00020126330014BR.GOV.BCB.PIX0111109853269485204000053039865406500.005802BR5925Filipe Querino dos Santos6009SAO PAULO62140510H4OKi61R4N6304FED8"
+    },
+    {
+        "name": "Um ano de barbearia para o noivo",
+        "description": "Para manter o visual na régua o ano todo! ✂️",
+        "image": "https://images.unsplash.com/photo-1596362601603-b74f6ef166e4?q=80&w=1926&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 1000,
+        "linkPix": "00020126580014BR.GOV.BCB.PIX0136963dfbe5-914c-411c-ad4b-b955f8dec86c52040000530398654071000.005802BR5925Filipe Querino dos Santos6009SAO PAULO62140510aho2S8PLI0630484E0"
+    },
+    {
+        "name": "Sessão de Spa e Massagem",
+        "description": "Para a noiva relaxar depois de organizar cada detalhe do casamento. 💆‍♀️",
+        "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 300,
+        "linkPix": "00020126330014BR.GOV.BCB.PIX0111109853269485204000053039865406300.005802BR5925Filipe Querino dos Santos6009SAO PAULO62140510VlVhGAi0QV630403FA"
+    },
+    {
+        "name": "Kit de maquiagem profissional",
+        "description": "Para a noiva brilhar ainda mais em qualquer evento. 💄✨",
+        "image": "https://images.unsplash.com/photo-1591019479261-1a103585c559?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 400,
+        "linkPix": "00020126330014BR.GOV.BCB.PIX0111109853269485204000053039865802BR5925Filipe Querino dos Santos6009SAO PAULO62140510neixH0Ml0r63041A46"
+    },
+    {
+        "name": "Lua de Mel dos Sonhos",
+        "description": "Apoie nosso grande sonho de viajar e curtir momentos inesquecíveis juntos. 🌅",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200",
+        "price": 4000,
+        "linkPix": "00020126580014BR.GOV.BCB.PIX0136963dfbe5-914c-411c-ad4b-b955f8dec86c52040000530398654074000.005802BR5925Filipe Querino dos Santos6009SAO PAULO62140510zFsqD70SSn630403FA"
+    },
+    {
+        "name": "Um dia de compras no shopping",
+        "description": "Porque uma tarde de compras nunca é demais, né? 🛒",
+        "image": "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 220,
+        "linkPix": "00020126330014BR.GOV.BCB.PIX0111109853269485204000053039865406220.005802BR5925Filipe Querino dos Santos6009SAO PAULO62140510exMXD9g5KB6304C2FE"
+    },
+    {
+        "name": "Vale Manicure por um mês",
+        "description": "Unhas sempre impecáveis para qualquer ocasião! 💅",
+        "image": "https://images.unsplash.com/photo-1581016793537-613987c89aad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 250,
+        "linkPix": "00020126580014BR.GOV.BCB.PIX0136963dfbe5-914c-411c-ad4b-b955f8dec86c5204000053039865406250.005802BR5925Filipe Querino dos Santos6009SAO PAULO62140510NS8rL1Zja4630461D2"
+    }
+]
