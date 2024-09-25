@@ -7,7 +7,7 @@ body {
     padding: 0;
     overflow-x: hidden; /* Impede o scroll horizontal */
     box-sizing: border-box;
-    background-image: url('../assets/fundo.jpg'); 
+    background-image: url('../assets/fundo.jpg'); /* Imagem de fundo */
     background-size: cover;
     background-position: center;
 }
@@ -17,9 +17,10 @@ h1 {
     color: #556b2f;
 }
 
+/* Aumentando o espaçamento para evitar proximidade com a navbar */
 section {
-    padding: 20px;
-    margin-bottom: 30px; /* Espaçamento entre as seções */
+    padding: 40px 20px; /* Aumentado o padding superior e inferior */
+    margin-bottom: 50px; /* Espaçamento maior entre as seções */
     max-width: 600px;
     background-color: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
     border-radius: 12px; /* Ajustando o border-radius */
@@ -110,8 +111,8 @@ textarea, input {
 
 /* Seção do Cronômetro */
 #cronometro {
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 40px 20px; /* Aumentado o padding superior e inferior */
+    margin-bottom: 50px;
     background-color: #fff;
     border-radius: 12px; /* Ajustado o border-radius */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -156,7 +157,7 @@ textarea, input {
 
 /* Seção de Confirmação */
 #confirmacao {
-    padding: 20px;
+    padding: 40px 20px; /* Aumentado o padding superior e inferior */
     background-color: #fff;
     border-radius: 12px; /* Ajustado o border-radius */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
