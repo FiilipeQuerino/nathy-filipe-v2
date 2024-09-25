@@ -1,49 +1,95 @@
-// Data do casamento: 8 de Março de 2025, às 15:00
-const casamentoData = new Date('March 8, 2025 15:00:00').getTime();
+document.addEventListener('DOMContentLoaded', function () {
+    carregarDadosLocais(); // Carrega os dados salvos no Local Storage
 
-function atualizarCronometro() {
-    const agora = new Date().getTime();
-    const distancia = casamentoData - agora;
+    document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    // Cálculos de tempo
-    const meses = Math.floor(distancia / (1000 * 60 * 60 * 24 * 30));
-    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24)) % 30;
-    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+        const name = document.getElementById('name').value.trim();
+        const responseElement = document.querySelector('input[name="response"]:checked');
 
-    // Atualiza os elementos HTML
-    document.getElementById("meses").innerText = meses < 10 ? '0' + meses : meses;
-    document.getElementById("dias").innerText = dias < 10 ? '0' + dias : dias;
-    document.getElementById("horas").innerText = horas < 10 ? '0' + horas : horas;
-    document.getElementById("minutos").innerText = minutos < 10 ? '0' + minutos : minutos;
-    document.getElementById("segundos").innerText = segundos < 10 ? '0' + segundos : segundos;
+        if (!responseElement) {
+            showToast('Por favor, selecione Sim ou Não.');
+            return;
+        }
 
+        const response = responseElement.value.trim();
 
-    if (distancia < 0) {
-        clearInterval(cronometroInterval);
-        document.getElementById("cronometro").innerHTML = "<h1>Já estamos casados!</h1>";
+        // Salvar os dados no Local Storage
+        localStorage.setItem('nome', name);
+        localStorage.setItem('resposta', response);
+
+        // Enviar dados para o Google Sheets
+        enviarParaGoogleSheets(name, response);
+
+        // Enviar mensagem para o WhatsApp
+        const whatsappMessage = `Olá%2C+aqui+é+${name}+e+${response === 'Sim' ? 'irei comparecer' : 'não poderei comparecer'} ao casamento.`;
+        abrirWhatsApp(whatsappMessage);
+    });
+});
+
+// Função para abrir o WhatsApp em uma nova aba no desktop ou no aplicativo no celular
+function abrirWhatsApp(mensagem) {
+    const whatsappUrl = `https://wa.me/5548996193227?text=${mensagem}`;
+    
+    // Verificar se o usuário está em um dispositivo móvel
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // Se for um dispositivo móvel, abre o app do WhatsApp
+        window.location.href = whatsappUrl;
+    } else {
+        // Se for desktop, abre em uma nova aba
+        const newWindow = window.open(whatsappUrl, '_blank');
+        if (newWindow) {
+            newWindow.focus();  // Garante que a nova aba receba foco
+        } else {
+            alert("Por favor, permita pop-ups para abrir o WhatsApp.");
+        }
     }
 }
 
-// Atualiza o cronômetro a cada segundo
-const cronometroInterval = setInterval(atualizarCronometro, 1000);
+// Função para enviar dados para o Google Sheets
+function enviarParaGoogleSheets(name, response) {
+    fetch('https://script.google.com/macros/s/AKfycbz3wi1TacxhCiNDu37bq_uV0HkMpzXYp8uUorTz83OAAJkoRXQM5HvZtKyu62uftPQN/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ "name": name, "response": response })
+    })
+    .then(() => {
+        showToast('Confirmação enviada com sucesso!');
+    })
+    .catch(error => {
+        console.error('Erro ao enviar os dados para o Google Sheets:', error);
+        showToast('Houve um erro ao enviar a confirmação. Por favor, tente novamente.');
+    });
+}
 
+// Função para carregar dados salvos do Local Storage
+function carregarDadosLocais() {
+    const savedName = localStorage.getItem('nome');
+    const savedResponse = localStorage.getItem('resposta');
 
-function confirmarPresenca() {
-    const nome = document.getElementById("nome").value;
-    if (nome) {
-        alert(`Obrigado por confirmar sua presença, ${nome}!`);
-    } else {
-        alert("Por favor, insira seu nome.");
+    if (savedName) {
+        document.getElementById('name').value = savedName;
+    }
+
+    if (savedResponse) {
+        const radioButton = document.querySelector(`input[name="response"][value="${savedResponse}"]`);
+        if (radioButton) {
+            radioButton.checked = true;
+        }
     }
 }
 
-function enviarRecado() {
-    const mensagem = document.getElementById("mensagem").value;
-    if (mensagem) {
-        alert("Obrigado pelo recado! Ele foi enviado com sucesso.");
-    } else {
-        alert("Por favor, escreva uma mensagem antes de enviar.");
-    }
+// Função para exibir mensagens de feedback (toast)
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "toast show";
+    setTimeout(function() {
+        toast.className = toast.className.replace("show", "");
+    }, 3000);
 }
