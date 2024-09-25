@@ -85,7 +85,7 @@ function carregarProdutos() {
         });
 }
 
-// Função para copiar o código PIX e exibir o modal com mensagem
+// Função para exibir o modal com a mensagem e preparar o botão de copiar
 function mostrarModalPix(pixCode) {
     const modal = document.getElementById('pix-modal');
     const modalText = document.getElementById('modal-pix-code');
@@ -93,17 +93,12 @@ function mostrarModalPix(pixCode) {
 
     modal.style.display = 'block'; // Exibe o modal
 
-    // Evento do botão de confirmação dentro do modal
-    document.getElementById('confirmar-pix').addEventListener('click', function() {
-        copiarPix(pixCode); // Copia o código PIX quando o usuário clica em "Confirmar"
-        modal.style.display = 'none'; // Fecha o modal
+    // Adiciona o evento do botão "Confirmar" para copiar o código
+    document.getElementById('confirmar-pix').onclick = function() {
+        copiarPix(pixCode); // Copia o código PIX
+        modal.style.display = 'none'; // Fecha o modal após copiar
         showToast('Código PIX copiado. Cole no seu app bancário.');
-    });
-
-    // Evento para fechar o modal clicando no "X"
-    document.getElementById('fechar-modal').addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
+    };
 }
 
 // Função para copiar o código PIX
@@ -115,6 +110,26 @@ function copiarPix(pixCode) {
     document.execCommand('copy');
     document.body.removeChild(tempInput);
 }
+
+// Evento para fechar o modal clicando no "X"
+document.getElementById('fechar-modal').onclick = function() {
+    document.getElementById('pix-modal').style.display = 'none';
+};
+
+// Função para exibir mensagens de feedback (toast)
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "toast show";
+    setTimeout(function() {
+        toast.className = toast.className.replace("show", "");
+    }, 3000);
+}
+
+// Executa o carregamento dos produtos
+document.addEventListener('DOMContentLoaded', function () {
+    carregarProdutos(); // Carrega os produtos da lista de presentes
+});
 
 // Função para exibir mensagens de feedback (toast)
 function showToast(message) {
