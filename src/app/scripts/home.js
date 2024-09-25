@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     carregarDadosLocais(); // Carrega os dados salvos no Local Storage
     carregarProdutos(); // Carrega os produtos da lista de presentes
+    checkCookies();    
 
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -177,9 +178,4 @@ function checkCookies() {
 document.getElementById('accept-cookies').addEventListener('click', function() {
     localStorage.setItem('cookiesAccepted', 'true');
     document.getElementById('cookie-banner').style.display = 'none';
-});
-
-// Executa a verificação dos cookies quando a página carrega
-document.addEventListener('DOMContentLoaded', function () {
-    checkCookies();
 });
