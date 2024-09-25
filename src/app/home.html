@@ -48,12 +48,23 @@
     <section id="confirmacao">
         <h1>Confirme sua Presença</h1>
         <form id="rsvp-form">
-            <input type="text" id="nome" placeholder="Seu nome" required>
-            <button type="button" onclick="confirmarPresenca()">
-                <i class="fa fa-check"></i> Confirmar Presença
-            </button>
+            <input type="text" id="name" placeholder="Seu nome" required>
+            
+            <div class="radio-group">
+                <label for="yes">
+                    <input type="radio" id="yes" name="response" value="Sim" required> Sim, eu vou
+                </label>
+                <label for="no">
+                    <input type="radio" id="no" name="response" value="Não" required> Não, não poderei ir
+                </label>
+            </div>
+
+            <button type="submit">Confirmar Presença</button>
         </form>
-    </section>    
+
+        <!-- Mensagem de Toast para feedback -->
+        <div id="toast" class="toast"></div>
+    </section>
 
     <!-- Seção de Presentes -->
     <section id="presentes">
